@@ -35,7 +35,7 @@ def main():
                 output_option.render()
                 gr.Markdown(get('configmanager'))
                 config_option.render()
-                with gr.Accordion(get('HelpTitle'), open=False):
+                with gr.Accordion(get('HelpTitle'), open=True):
                     gr.Markdown(get('HelpContent'))
                     with gr.Row():
                         gr.Markdown(" ")

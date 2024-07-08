@@ -2,18 +2,9 @@ from typing import Any, Dict, Optional
 
 WORDING : Dict[str, Any] =\
 {
- 'Title': '# ChatTTS-增强版V3⚡️⚡️',
+ 'Title': '# ChatTTS',
     'VersionDescription': '''
-基于Chat-TTS项目制作。
-
-1. 音质增强/降噪解决Chat-TTS生成时的噪音问题。
-2. 支持多TXT、SRT文件批量处理。
-3. 支持长文本处理，支持中英混读。可自定义切割长度。
-4. 支持导出srt文件。
-5. 支持调节语速、停顿、笑声、口语化程度等参数。
-6. 支持导入ChatTTS Speaker音色。详情看帮助。
-7. 支持储存音色配置与选项配置。方便管理。
-    ''',
+基于Chat-TTS项目制作。''',
     'default_text':'四川美食确实以辣闻名，但也有不辣的选择。比如甜水面、赖汤圆、蛋烘糕、叶儿粑等，这些小吃口味温和，甜而不腻，也很受欢迎。',
     'BatchProcessing': '批量处理',
     'BatchProcessingInfo': '勾选以启用txt文件上传批量处理',
@@ -21,7 +12,7 @@ WORDING : Dict[str, Any] =\
     'SrtProcessingInfo': '批量处理后会生成对应srt格式的文件',
     'TextInputLabel': '输入文字',
     'TextInputPlaceholder': '请把字放这里...',
-    'TxtFileInputLabel': '上传TXT、SRT文件',
+    'TxtFileInputLabel': '上传TXT、SRT、epub文件',
     'TextOptionsTitle': '### 文本选项',
     'RefineText': '提炼文本',
     'RefineTextInfo': '口语化处理文本，会自动添加停顿、调整语气等。',

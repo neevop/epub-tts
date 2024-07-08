@@ -14,8 +14,8 @@ def concatenate_audio(audio_files, output_path):
 def concatenate_audiofile(file_name,audio_files,enhanced_audio_files):
     original_audio_output = None
     enhanced_audio_output = None
-    out_con_audio=os.path.join(get_path('OUTPUT_DIR'), file_name, '合并')
-    concatenated_audio_path = os.path.join(out_con_audio, f"{file_name}_合并.wav")
+    out_con_audio=os.path.join(get_path('OUTPUT_DIR'), file_name)
+    concatenated_audio_path = os.path.join(out_con_audio, f"{file_name}.wav")
 
     if not os.path.exists(out_con_audio):
         os.makedirs(out_con_audio, exist_ok=True)
@@ -27,7 +27,7 @@ def concatenate_audiofile(file_name,audio_files,enhanced_audio_files):
     original_audio_output = (concatenated_sr, concatenated_audio_data)
     print('------音频合并完成------')
     if len(enhanced_audio_files) > 1:
-        concatenated_enhanced_audio_path = os.path.join(out_con_audio, f"{file_name}_合并_增强.wav")
+        concatenated_enhanced_audio_path = os.path.join(out_con_audio, f"enhanced_{file_name}.wav")
         concatenate_audio(enhanced_audio_files, concatenated_enhanced_audio_path)
         print(f"增强合并音频至: {concatenated_enhanced_audio_path}")
 

@@ -1,0 +1,13 @@
+serverAddr = "xxxxx.xxx"
+serverPort = 7000
+auth.method = "token"
+auth.token = "your-frps-sercet-token"
+
+[[proxies]]
+name = "tts-web"
+type = "tcp"
+localIP = "x.x.x.x"
+localPort = 7860
+remotePort =7860
+
+

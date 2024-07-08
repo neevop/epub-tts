@@ -14,18 +14,18 @@ def render():
 
     with gr.Row():
         BATCH_PROCESSING_CHECKBOX = gr.Checkbox(
-            label=get('BatchProcessing'), value=False, info=get('BatchProcessingInfo')
+            label=get('BatchProcessing'), value=True, info=get('BatchProcessingInfo')
         )
 
         SRT_PROCESSING_CHECKBOX = gr.Checkbox(
-            label=get('SrtProcessing'), value=False, visible=False, info=get('SrtProcessingInfo'),interactive=True
+            label=get('SrtProcessing'), value=True, visible=False, info=get('SrtProcessingInfo'),interactive=True
         )
 
     TEXT_INPUT = gr.Textbox(
         label=get('TextInputLabel'), lines=4, placeholder=get('TextInputPlaceholder'), value=get('default_text'),interactive=True
     )
     TXT_FILE_INPUT = gr.Files(
-        label=get('TxtFileInputLabel'), type="filepath", file_types=['.txt','.srt'], visible=BATCH_PROCESSING_CHECKBOX.value,interactive=True
+        label=get('TxtFileInputLabel'), type="filepath", file_types=['.txt','.srt', '.epub'], visible=BATCH_PROCESSING_CHECKBOX.value,interactive=True
     )
 
     register_component("batch_processing_checkbox", BATCH_PROCESSING_CHECKBOX)

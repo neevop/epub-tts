@@ -19,7 +19,7 @@ def render():
             value=False
         )
         SEGMENT_LENGTH_SLIDER = gr.Slider(
-            minimum=10, maximum=200, step=10, value=60,
+            minimum=10, maximum=100, step=10, value=60,
             label=get('SegmentLength'),
             info=get('SegmentLengthInfo')
         )

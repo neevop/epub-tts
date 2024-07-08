@@ -11,8 +11,8 @@ from utils.srt_utils import generate_srt_from_audio_segments
 audio_files = []
 enhanced_audio_files = []
 
-def audio_pre_processor(params: AudioPreProcessParams,enparams: EnhanceProcessParams,CHAT):
-
+def audio_pre_processor(params: AudioPreProcessParams, enparams: EnhanceProcessParams, CHAT):
+    
     text_segments = params.text_segments
     audio_profile_path = params.audio_profile_path
     speed_slider = params.speed_slider
@@ -85,7 +85,7 @@ def audio_pre_processor(params: AudioPreProcessParams,enparams: EnhanceProcessPa
 
 
         if len(audio_files) > 1:
-            concatenated_or, concatenated_en =concatenate_audiofile(file_name,audio_files,enhanced_audio_files)
+            concatenated_or, concatenated_en =concatenate_audiofile(file_name, audio_files, enhanced_audio_files)
 
     original_audio_output = None
     enhanced_audio_output = None

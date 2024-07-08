@@ -2,6 +2,7 @@ import srt
 from datetime import timedelta
 import librosa
 import os
+import epubs
 
 def generate_srt_from_audio_segments(audio_segments, text_segments, output_srt_file):
     """
@@ -74,6 +75,16 @@ def process_txt_file(file_path):
         content = file.read()
     return content
 
+def process_epub_file(file_path):
+    text = epubs.to_text(file_path)
+    content = []
+    for section in text:
+        body = " ".join(section[2:-1])  # 过滤目录等内容
+        if len(body) < 30:  # 过滤章节标题
+            continue
+        content.append(body)
+
+    return content
 
 def process_file(file_path):
     results =''
@@ -82,6 +93,8 @@ def process_file(file_path):
         results = process_srt_file(file_path)
     elif file_ext == '.txt':
         results = process_txt_file(file_path)
+    elif file_ext == '.epub':
+        results = process_epub_file(file_path)
     else:
         results = "Unsupported file type"
 
