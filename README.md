@@ -1,6 +1,6 @@
 # Epub-TTS
 ## 项目预览
-从开源项目 [ChatTTS-Enhanced](https://github.com/CCmahua/ChatTTS-Enhanced) 
+从开源项目 [ChatTTS-Enhanced](https://github.com/CCmahua/ChatTTS-Enhanced) 二次开发。 持续完善中...
 
 ## 介绍
 
@@ -14,6 +14,8 @@
 - 支持储存音色配置与选项配置。方便管理。
 
 ## 离线一键整合包
+
+暂无。
 
 ## 部署
 
@@ -54,6 +56,7 @@ python webui/webui.py
 - PaddleSpeech:https://github.com/PaddlePaddle/PaddleSpeech
 - ChatTTS_Speaker:https://github.com/6drf21e/ChatTTS_Speaker
 - WeTextProcessing:https://github.com/wenet-e2e/WeTextProcessing
+- frpc:https://github.com/stilleshan/frpc
 
 
 
