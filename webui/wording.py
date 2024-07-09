@@ -2,7 +2,7 @@ from typing import Any, Dict, Optional
 
 WORDING : Dict[str, Any] =\
 {
- 'Title': '# ChatTTS',
+ 'Title': '# Epub-TTS',
     'VersionDescription': '''
 基于Chat-TTS项目制作。''',
     'default_text':'四川美食确实以辣闻名，但也有不辣的选择。比如甜水面、赖汤圆、蛋烘糕、叶儿粑等，这些小吃口味温和，甜而不腻，也很受欢迎。',

@@ -1,4 +1,4 @@
-from processors.params.process_params import AudioPreProcessParams,AudioProcessParams,EnhanceProcessParams
+from processors.params.process_params import AudioPreProcessParams, AudioProcessParams, EnhanceProcessParams
 from processors.enhance_processors import enhance_processor
 from processors.concatente_processor import concatenate_audiofile
 import os
@@ -28,7 +28,6 @@ def audio_pre_processor(params: AudioPreProcessParams, enparams: EnhanceProcessP
     emb_upload=params.emb_upload
     emb_upload_path=params.emb_upload_path
     srt_flag=params.srt_flag
-    batch_processing=params.batch_processing
 
 
     enhance_audio=enparams.enhance_audio
@@ -69,23 +68,24 @@ def audio_pre_processor(params: AudioPreProcessParams, enparams: EnhanceProcessP
             print(segment)
             if not isinstance(segment, str):
                 segment = str(segment)
-            segment_audio_path,sample_rate,audio_data = audio_processor(CHAT, file_name,segment,refine_text_flag,nums2text_switch,params_refine_text,params_infer_code,i)
+            segment_audio_path, sample_rate,audio_data = audio_processor(CHAT, file_name,segment, 
+                                                                        refine_text_flag, nums2text_switch, 
+                                                                        params_refine_text, params_infer_code, i)
             audio_files.append(segment_audio_path)
 
             if enhance_audio or denoise_audio:
                 enparams.segment_audio_path=segment_audio_path
                 enparams.file_name = file_name
-                enparams.i=i
+                enparams.i = i
                 enhanced_sample_rate, enhanced_audio_data = enhance_processor(enparams)
                 enhanced_audio_files.append(segment_audio_path)
 
-        if srt_flag and batch_processing:
+        if srt_flag:
             srt_path = os.path.join(get_path('OUTPUT_DIR'), file_name, f'{file_name}.srt')
             generate_srt_from_audio_segments(audio_files, content, srt_path)
 
-
         if len(audio_files) > 1:
-            concatenated_or, concatenated_en =concatenate_audiofile(file_name, audio_files, enhanced_audio_files)
+            concatenated_or, concatenated_en = concatenate_audiofile(file_name, audio_files, enhanced_audio_files)
 
     original_audio_output = None
     enhanced_audio_output = None

@@ -1,16 +1,15 @@
 import os
 from processors.params.process_params import TextProcessParams
-from utils.text_utils import replace_tokens,split_text,restore_tokens
+from utils.text_utils import replace_tokens, split_text, restore_tokens
 from utils.srt_utils import process_file
+
+
 def batch_or_split_text(params: TextProcessParams):
     batchData= {}
-    batch_processing = params.batch_processing
     txt_file = params.txt_file
-    split_text_flag = params.split_text_flag
-    text = params.text
     segment_length = params.segment_length
     # 批量处理
-    if batch_processing and txt_file is not None:
+    if txt_file is not None:
         
         if isinstance(txt_file, list) and len(txt_file) > 1:
             for file in txt_file:
@@ -24,13 +23,10 @@ def batch_or_split_text(params: TextProcessParams):
                     batchData[index_file_name] = process_text(content, segment_length)
             else:
                 batchData[file] = process_text(file_content, segment_length)
-
-    if batch_processing:
-        text_segments = batchData
     else:
-        text_segments = {None: process_text(text, segment_length)}
-    return text_segments
+        raise ValueError("text_file is none.")
 
+    return batchData
 
 
 def process_text(lines, min_length):

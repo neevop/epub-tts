@@ -19,10 +19,8 @@ def generate_audio():
     data = request.json
     
     text_process_params = TextProcessParams(
-        batch_processing=data.get('batch_processing', False),
         txt_file=data.get('txt_file', ''),
         split_text_flag=data.get('split_text_flag', False),
-        text=data.get('text', ''),
         segment_length=data.get('segment_length', 100)
     )
 
@@ -44,7 +42,6 @@ def generate_audio():
         emb_upload=data.get('emb_upload', False),
         emb_upload_path=data.get('emb_upload_path', ''),
         srt_flag=data.get('srt_flag', False),
-        batch_processing=data.get('batch_processing', False)
     )
     
     enhance_params = EnhanceProcessParams(

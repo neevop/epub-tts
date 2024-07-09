@@ -10,7 +10,6 @@ import config_option
 from webuiutils import read_config, get_server_config
 
 
-
 def main():
     with gr.Blocks(theme=gr.themes.Soft()) as demo:
         gr.Markdown(get('Title'))
